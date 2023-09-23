@@ -30,7 +30,7 @@
 
 /* Handle (the draggable part of the scrollbar) */
 ::-webkit-scrollbar-thumb {
-  background: #3498db; /* Fresh blue background for the scrollbar handle */
+  background: #234E70; /* Fresh blue background for the scrollbar handle */
   border-radius: 2px;
 }
 
@@ -43,8 +43,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #ecf0f1; /* Subtle light gray background color */
-  color: #333333; /* Dark text color */
+  background-color: #fff887; 
+  color: #333333;
 }
 
 .overlay {
@@ -84,7 +84,7 @@ nav li {
   justify-content: center;
   width: 150px; /* Adjusted square size */
   height: 150px; /* Adjusted square size */
-  background-color: #3498db; /* Fresh blue background for squares */
+  background-color: #234E70; /* Fresh blue background for squares */
   transition: transform 0.4s ease, width 0.3s ease, height 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   perspective: 1000px;
@@ -97,6 +97,8 @@ nav li {
 
 .square:hover {
   transform: scale(1.2) rotateX(10deg) rotateY(10deg); /* Scale up and rotate on hover */
+background-color: #FBF8BE;
+color: #234E70;
   width: 170px; /* Larger square size on hover */
   height: 170px; /* Larger square size on hover */
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9); /* Added box-shadow on hover */
@@ -110,7 +112,7 @@ nav li {
 .letter {
   font-size: 72px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white; /* White text color */
+  color: white;
   position: relative;
   z-index: 1;
   pointer-events: none;
@@ -128,6 +130,8 @@ nav li {
 
 .square:hover .word {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.9); /* Glowing effect on hover */
+text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Deep engraved shadow */
+color: #234E70;
 }
 
 /* Content Styles */
@@ -140,7 +144,7 @@ nav li {
   overflow-y: auto; /* Make content scrollable vertically */
   margin-right: 100px; /* Add a right margin */
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 /* Button Container Styles */
@@ -155,24 +159,25 @@ nav li {
 
 /* Button Styles */
 .button {
-  font-size: 12px;
-  font-weight: bold;
-  color: #ffffff; /* White text color */
-  background-color: #3498db; /* Fresh blue background color for buttons */
-  border: none;
-  padding: 18px 18px;
-  margin-top: 5px;
-  cursor: pointer;
-  transition: transform 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease;
-  width: 90px;
-  text-align: center;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9); /* Added box-shadow for a 3D effect */
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #234E70;
+    border: none;
+    padding: 18px 18px;
+    margin-top: 5px;
+    cursor: grab;
+    transition: transform 0.3s ease, background-color 0.3s ease, text-shadow 0.3s ease;
+    width: 90px;
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.9);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .button:hover {
-  background-color: #2980b9; /* Darker blue background color on hover */
-  transform: scale(1.1);
+  background-color: #FBF8BE; 
+color:#234E70;
+  transform: scale(0.9);
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
 }
 
@@ -181,7 +186,7 @@ nav li {
   font-size: 12px;
   font-weight: bold;
   color: #ffffff; /* White text color */
-  background-color: #932525;
+  background-color: #ff4141;
   border: none;
   padding: 18px 18px;
   margin-top: 5px;
@@ -194,14 +199,15 @@ nav li {
   top: 50%;
   right: 5px; /* Position the "Hire Me!" button at the right side of the screen */
   transform: translateY(-50%);
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   animation: jump 9s infinite;
 }
 
 .hire-button:hover {
-  background-color: #ff4141;
+  background-color: white;
+color:#ff0505;
   transform: scale(1.1);
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  
 }
 
 /* Popup Styles */
@@ -218,31 +224,32 @@ nav li {
 }
 
 .popup-content {
-  padding: 20px;
-  text-align: center;
-  width: 500px; /* Adjust the width as needed */
-  height: 200px; /* Adjust the height as needed */
-  background-color: #8E9091; /* Background color of the box */
-  border: 70px solid #601d1d;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9); /* Box shadow with horizontal and vertical offset and blur radius */
+    padding: 0px;
+    text-align: center;
+    width: 500px;
+    height: 320px;
+    background-color: #f9f9f9;
+    border: 70px solid #1c3e58;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
 }
 
 .popup p, h3, h2 {
-  font-size: 24px; /* Adjust the font size as needed */
-  color: #000; /* Text color (light color) */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Text shadow for engraving effect */
+    font-size: 24px;
+    color: #000;
+    text-shadow: -3px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 .popup-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-  font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #FBF8BE;
 }
 
 .popup-close:hover {
-  color: #3498db;
+  color: Red;
 }
 
 @keyframes jump {
@@ -272,7 +279,7 @@ nav li {
 .carousel {
     display: flex;
     transition: transform 0.5s ease;
-    width: 250px; /* Occupy the full width of the container */
+    width: 200px; /* Occupy the full width of the container */
     height: 200px; /* Ensure logos maintain their aspect ratio */
     white-space: nowrap; /* Prevent logos from wrapping to the next line */
 }
@@ -283,6 +290,10 @@ nav li {
     height: auto;
     flex: 0 0 100%; 
     display: none; 
+}
+
+.image-with-shadow {
+    box-shadow: 4px 5px 20px 0px #888888;
 }
 
     
@@ -431,10 +442,20 @@ Multitasking and coordination have been at the core of my professional journey, 
     <div class="popup" id="popup">
       <div class="popup-content">
         <span class="popup-close" id="popup-close">&times;</span>
-        <h2>Contact Me</h2>
-        <p>You can contact me at +91 797226575855</p>
-        <p>Email: <a href="mailto:zuber.masalikar@outlook.com">zuber.masalikar@outlook.com</a></p>
-        <p><a href="https://www.linkedin.com/in/zuber-masalikar-5b099a289/">LinkedIn</a></p>
+        <h2>Click on your preferred method</h2>
+        <p><a href="https://wa.me/919762699075?text=Hello,%20I%20have%20a%20question%20about%20your%20services" target="_blank">
+    <img src="https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c543.png" alt="WhatsApp" class="image-with-shadow" width="50" height="50">
+</a>
+</p>
+
+ <p><a href="mailto:zuber.masalikar@outlook.com">
+    <img src="https://png.pngtree.com/png-clipart/20191120/original/pngtree-email-icon-png-image_5065641.jpg" alt="Email" class="image-with-shadow" width="60" height="50"></a></p>
+
+ <p><a href="https://www.linkedin.com/in/zuber-masalikar-5b099a289">
+    <img src="https://www.freepnglogos.com/uploads/linkedin-in-logo-png-1.png" alt="LinkedIn" class="image-with-shadow" width="50" height="50"></a></p>
+
+
+       
       </div>
     </div>
   </div>
