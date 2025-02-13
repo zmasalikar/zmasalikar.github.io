@@ -20,7 +20,7 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
-        input {
+        input { 
             padding: 10px;
             margin: 10px 0;
             width: 80%;
@@ -50,12 +50,12 @@
         <h2>Enter Password</h2>
         <input type="password" id="passwordInput" placeholder="Password">
         <button onclick="checkPassword()">Submit</button>
-        <p class="error" id="errorText">Incorrect password! Try again.</p>
+        <p class="error" id="errorText">Not Authorized! Try again.</p>
     </div>
 
     <script>
         function checkPassword() {
-            var password = "yourpassword"; // Change this to your actual password
+            var password = "LetMeAccess!"; // Change this to your actual password
             var input = document.getElementById("passwordInput").value;
             var errorText = document.getElementById("errorText");
 
