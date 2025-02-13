@@ -1,16 +1,17 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
-  <script>
-  var password = "yourpassword"; // GiveMeAccessNow123
+<script>
+  var password = "yourpassword"; // Set your password here
   var userInput = prompt("Enter Password:");
-  if (userInput !== password) {
+
+  // Check if the input is null or doesn't match the password
+  if (userInput === null || userInput.trim() !== password) {
     document.body.innerHTML = "Access Denied!";
   }
 </script>
 
-<p>Only authorized users can see this.</p>
 
 
   
