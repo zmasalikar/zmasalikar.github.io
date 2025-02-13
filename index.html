@@ -4,14 +4,16 @@
 
 <script>
   var password = "yourpassword"; // Set your password here
-  var userInput = prompt("Enter Password:");
+  var userInput = "";
 
-  // Check if the input is null or doesn't match the password
-  if (userInput === null || userInput.trim() !== password) {
-    document.body.innerHTML = "Access Denied!";
+  while (userInput !== password) {
+    userInput = prompt("Enter Password:");
+    if (userInput === null) {
+      document.body.innerHTML = "Access Denied!";
+      throw new Error("Access Denied!"); // Stop further execution
+    }
   }
 </script>
-
 
 
   
