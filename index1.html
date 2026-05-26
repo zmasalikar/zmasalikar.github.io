@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Zuber | Elite Portfolio</title>
+<title>Zuber | Elite Experience</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -32,42 +32,54 @@ overflow-x:hidden;
 }
 
 /* ========================= */
-/* SCROLLBAR */
-/* ========================= */
-
-::-webkit-scrollbar{
-width:5px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#3b82f6;
-}
-
-/* ========================= */
 /* BACKGROUND */
 /* ========================= */
 
-.bg-glow{
+.bg{
 position:fixed;
-width:700px;
-height:700px;
-background:radial-gradient(circle,#2563eb33 0%,transparent 70%);
-top:-200px;
-right:-200px;
-z-index:-1;
-filter:blur(40px);
-animation:floatGlow 10s ease-in-out infinite;
+inset:0;
+overflow:hidden;
+z-index:-2;
 }
 
-@keyframes floatGlow{
-0%{
-transform:translateY(0px);
+.gradient{
+position:absolute;
+width:800px;
+height:800px;
+border-radius:50%;
+filter:blur(120px);
+opacity:0.15;
 }
-50%{
-transform:translateY(40px);
+
+.g1{
+background:#2563eb;
+top:-200px;
+left:-200px;
+animation:move1 12s infinite alternate ease-in-out;
+}
+
+.g2{
+background:#9333ea;
+bottom:-300px;
+right:-200px;
+animation:move2 15s infinite alternate ease-in-out;
+}
+
+@keyframes move1{
+0%{
+transform:translate(0,0);
 }
 100%{
-transform:translateY(0px);
+transform:translate(100px,80px);
+}
+}
+
+@keyframes move2{
+0%{
+transform:translate(0,0);
+}
+100%{
+transform:translate(-120px,-100px);
 }
 }
 
@@ -78,22 +90,21 @@ transform:translateY(0px);
 nav{
 position:fixed;
 top:0;
-left:0;
 width:100%;
-padding:25px 80px;
+padding:28px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:1000;
-backdrop-filter:blur(12px);
-background:rgba(0,0,0,0.2);
+backdrop-filter:blur(20px);
+background:rgba(0,0,0,0.15);
 border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:24px;
+font-size:20px;
 font-weight:700;
-letter-spacing:5px;
+letter-spacing:8px;
 }
 
 nav ul{
@@ -103,20 +114,35 @@ list-style:none;
 }
 
 nav a{
-text-decoration:none;
 color:white;
+text-decoration:none;
 font-size:14px;
-opacity:0.8;
-transition:0.3s;
+opacity:0.7;
+transition:0.4s;
+position:relative;
+}
+
+nav a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-8px;
+width:0%;
+height:1px;
+background:white;
+transition:0.4s;
+}
+
+nav a:hover::after{
+width:100%;
 }
 
 nav a:hover{
 opacity:1;
-color:#60a5fa;
 }
 
 /* ========================= */
-/* HERO SECTION */
+/* HERO */
 /* ========================= */
 
 .hero{
@@ -125,94 +151,110 @@ display:flex;
 justify-content:center;
 align-items:center;
 position:relative;
-overflow:hidden;
+padding:0 10%;
 }
 
 .hero-content{
+max-width:1100px;
 text-align:center;
+position:relative;
 z-index:2;
 }
 
-.hero-sub{
-font-size:18px;
-letter-spacing:4px;
-color:#60a5fa;
-margin-bottom:20px;
+.small-title{
+font-size:14px;
+letter-spacing:6px;
+text-transform:uppercase;
+color:#7dd3fc;
+margin-bottom:30px;
 opacity:0;
 }
 
-.hero-title{
-font-size:120px;
-font-weight:700;
-letter-spacing:15px;
-line-height:1;
+.main-title{
+font-size:140px;
+font-weight:800;
+line-height:0.9;
+letter-spacing:10px;
+margin-bottom:30px;
 opacity:0;
 }
 
-.hero-description{
-max-width:800px;
-margin:auto;
-margin-top:30px;
+.main-title span{
+display:block;
+font-size:40px;
+font-weight:400;
+letter-spacing:12px;
+margin-top:20px;
+opacity:0.6;
+}
+
+.hero-text{
 font-size:20px;
-line-height:1.8;
-opacity:0.7;
+line-height:2;
+color:#bcbcbc;
+max-width:850px;
+margin:auto;
 opacity:0;
 }
 
 .hero-buttons{
-margin-top:40px;
+margin-top:50px;
 display:flex;
 justify-content:center;
-gap:20px;
+gap:25px;
 opacity:0;
 }
 
 .btn{
-padding:16px 35px;
+padding:18px 38px;
 border:none;
-cursor:pointer;
-font-size:15px;
+font-size:14px;
 font-weight:600;
-transition:0.4s;
+cursor:pointer;
+transition:0.5s;
 position:relative;
 overflow:hidden;
 }
 
-.btn-primary{
-background:#2563eb;
-color:white;
+.primary{
+background:white;
+color:black;
 }
 
-.btn-secondary{
+.secondary{
 background:transparent;
-border:1px solid rgba(255,255,255,0.2);
+border:1px solid rgba(255,255,255,0.15);
 color:white;
+backdrop-filter:blur(10px);
 }
 
 .btn:hover{
-transform:translateY(-5px);
+transform:translateY(-8px);
 }
 
 /* ========================= */
-/* FLOATING LETTERS */
+/* FLOATING RINGS */
 /* ========================= */
 
-.floating-letter{
+.ring{
 position:absolute;
-font-size:220px;
-font-weight:700;
-opacity:0.03;
-pointer-events:none;
+border:1px solid rgba(255,255,255,0.06);
+border-radius:50%;
 }
 
-.z1{
-top:10%;
-left:5%;
+.r1{
+width:700px;
+height:700px;
 }
 
-.z2{
-bottom:5%;
-right:10%;
+.r2{
+width:900px;
+height:900px;
+}
+
+.r3{
+width:1100px;
+height:1100px;
 }
 
 /* ========================= */
@@ -220,53 +262,112 @@ right:10%;
 /* ========================= */
 
 section{
-padding:140px 12%;
+padding:180px 10%;
+position:relative;
+}
+
+.section-top{
+margin-bottom:80px;
+}
+
+.section-number{
+font-size:14px;
+letter-spacing:5px;
+color:#7dd3fc;
+margin-bottom:15px;
 }
 
 .section-title{
-font-size:50px;
-margin-bottom:80px;
-position:relative;
-display:inline-block;
+font-size:64px;
+font-weight:700;
+line-height:1.1;
 }
 
-.section-title::after{
+/* ========================= */
+/* GLASS CARDS */
+/* ========================= */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:40px;
+}
+
+.card{
+padding:60px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.06);
+backdrop-filter:blur(20px);
+transition:0.6s;
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
 content:'';
 position:absolute;
-left:0;
-bottom:-10px;
-width:50%;
-height:4px;
-background:#2563eb;
+top:0;
+left:-100%;
+width:100%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.05),
+transparent
+);
+transition:1s;
+}
+
+.card:hover::before{
+left:100%;
+}
+
+.card:hover{
+transform:translateY(-12px);
+border-color:rgba(255,255,255,0.15);
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:20px;
+}
+
+.card p{
+color:#bcbcbc;
+line-height:2;
 }
 
 /* ========================= */
-/* ABOUT */
+/* EXPERIENCE */
 /* ========================= */
 
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:60px;
-align-items:center;
+.timeline{
+display:flex;
+flex-direction:column;
+gap:40px;
 }
 
-.about-card{
-background:rgba(255,255,255,0.03);
+.exp-card{
 padding:50px;
-border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.03);
+border-left:2px solid #7dd3fc;
 transition:0.5s;
 }
 
-.about-card:hover{
-transform:translateY(-10px);
-border-color:#2563eb;
+.exp-card:hover{
+transform:translateX(15px);
+background:rgba(255,255,255,0.05);
 }
 
-.about-card p{
+.exp-card h3{
+font-size:32px;
+margin-bottom:15px;
+}
+
+.exp-card p{
 line-height:2;
-color:#b5b5b5;
+color:#bcbcbc;
 }
 
 /* ========================= */
@@ -276,112 +377,30 @@ color:#b5b5b5;
 .stats{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:30px;
+gap:25px;
 margin-top:80px;
 }
 
 .stat{
+padding:50px 30px;
 background:rgba(255,255,255,0.03);
-padding:40px;
 text-align:center;
 border:1px solid rgba(255,255,255,0.05);
-transition:0.4s;
+transition:0.5s;
 }
 
 .stat:hover{
 transform:translateY(-10px);
-border-color:#2563eb;
 }
 
 .stat h2{
-font-size:50px;
+font-size:60px;
 margin-bottom:10px;
-color:#60a5fa;
+font-weight:700;
 }
 
-/* ========================= */
-/* EXPERIENCE */
-/* ========================= */
-
-.timeline{
-position:relative;
-padding-left:50px;
-}
-
-.timeline::before{
-content:'';
-position:absolute;
-left:10px;
-top:0;
-width:2px;
-height:100%;
-background:#2563eb;
-}
-
-.timeline-item{
-margin-bottom:80px;
-position:relative;
-}
-
-.timeline-item::before{
-content:'';
-position:absolute;
-left:-48px;
-top:10px;
-width:20px;
-height:20px;
-background:#2563eb;
-border-radius:50%;
-box-shadow:0 0 20px #2563eb;
-}
-
-.timeline-card{
-background:rgba(255,255,255,0.03);
-padding:40px;
-border:1px solid rgba(255,255,255,0.05);
-transition:0.4s;
-}
-
-.timeline-card:hover{
-transform:translateX(10px);
-border-color:#2563eb;
-}
-
-.timeline-card h3{
-margin-bottom:10px;
-font-size:28px;
-}
-
-.timeline-card p{
-line-height:1.9;
-color:#b5b5b5;
-}
-
-/* ========================= */
-/* SKILLS */
-/* ========================= */
-
-.skills-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-}
-
-.skill-card{
-padding:40px;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
-transition:0.4s;
-}
-
-.skill-card:hover{
-transform:translateY(-10px);
-border-color:#2563eb;
-}
-
-.skill-card h3{
-margin-bottom:20px;
-font-size:24px;
+.stat p{
+color:#a1a1a1;
 }
 
 /* ========================= */
@@ -390,38 +409,43 @@ font-size:24px;
 
 .contact{
 text-align:center;
+padding-bottom:200px;
 }
 
 .contact h2{
-font-size:60px;
+font-size:72px;
 margin-bottom:30px;
 }
 
 .contact p{
 font-size:20px;
-color:#b5b5b5;
-margin-bottom:50px;
+max-width:700px;
+margin:auto;
+line-height:2;
+color:#bcbcbc;
 }
 
 .contact-links{
+margin-top:60px;
 display:flex;
 justify-content:center;
-gap:30px;
+gap:20px;
 flex-wrap:wrap;
 }
 
 .contact-links a{
 padding:18px 35px;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
 text-decoration:none;
 color:white;
-transition:0.4s;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.08);
+transition:0.5s;
 }
 
 .contact-links a:hover{
-background:#2563eb;
-transform:translateY(-5px);
+background:white;
+color:black;
+transform:translateY(-8px);
 }
 
 /* ========================= */
@@ -430,11 +454,11 @@ transform:translateY(-5px);
 
 @media(max-width:992px){
 
-.hero-title{
-font-size:70px;
+.main-title{
+font-size:90px;
 }
 
-.about-grid{
+.grid{
 grid-template-columns:1fr;
 }
 
@@ -442,38 +466,41 @@ grid-template-columns:1fr;
 grid-template-columns:1fr 1fr;
 }
 
-.skills-grid{
-grid-template-columns:1fr;
-}
-
-nav{
-padding:20px;
-}
-
 }
 
 @media(max-width:768px){
 
-.hero-title{
-font-size:50px;
+nav ul{
+display:none;
+}
+
+.main-title{
+font-size:58px;
 letter-spacing:5px;
 }
 
-.hero-description{
+.main-title span{
+font-size:22px;
+}
+
+.hero-text{
 font-size:16px;
-padding:0 20px;
+}
+
+.section-title{
+font-size:42px;
 }
 
 .stats{
 grid-template-columns:1fr;
 }
 
-nav ul{
-display:none;
+.hero-buttons{
+flex-direction:column;
 }
 
 section{
-padding:100px 8%;
+padding:120px 8%;
 }
 
 }
@@ -484,18 +511,22 @@ padding:100px 8%;
 
 <body>
 
-<div class="bg-glow"></div>
+<div class="bg">
+<div class="gradient g1"></div>
+<div class="gradient g2"></div>
+</div>
 
 <!-- NAVBAR -->
 
 <nav>
 
-<div class="logo">ZUBER</div>
+<div class="logo">
+ZUBER
+</div>
 
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#experience">Experience</a></li>
-<li><a href="#skills">Skills</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 
@@ -505,36 +536,39 @@ padding:100px 8%;
 
 <section class="hero">
 
-<div class="floating-letter z1">Z</div>
-<div class="floating-letter z2">R</div>
+<div class="ring r1"></div>
+<div class="ring r2"></div>
+<div class="ring r3"></div>
 
 <div class="hero-content">
 
-<div class="hero-sub">
-SOFTWARE SUPPORT SPECIALIST • TEAM LEADER
+<div class="small-title">
+ELITE SUPPORT • LEADERSHIP • INNOVATION
 </div>
 
-<h1 class="hero-title">
+<h1 class="main-title">
 ZUBER
+<span>SOFTWARE SUPPORT SPECIALIST</span>
 </h1>
 
-<p class="hero-description">
+<p class="hero-text">
 
-Delivering elite customer experiences, technical solutions,
-process innovation, and leadership excellence across global organizations.
+Transforming customer experiences through leadership,
+technical expertise, operational excellence,
+and innovative problem solving across global organizations.
 
 </p>
 
 <div class="hero-buttons">
 
 <a href="mailto:zuber.masalikar@outlook.com">
-<button class="btn btn-primary">
+<button class="btn primary">
 Hire Me
 </button>
 </a>
 
 <a href="https://in.linkedin.com/in/zuber-masalikar-5b099a289" target="_blank">
-<button class="btn btn-secondary">
+<button class="btn secondary">
 LinkedIn
 </button>
 </a>
@@ -549,34 +583,70 @@ LinkedIn
 
 <section id="about">
 
+<div class="section-top">
+
+<div class="section-number">
+01
+</div>
+
 <h2 class="section-title">
-About Me
+Professional Excellence
 </h2>
 
-<div class="about-grid">
+</div>
 
-<div class="about-card">
+<div class="grid">
+
+<div class="card">
+
+<h3>Leadership</h3>
 
 <p>
 
-Experienced professional specializing in customer success,
-technical support, leadership, and process optimization.
-Known for solving high-pressure technical challenges,
-improving operational efficiency, and delivering
-exceptional client experiences across global organizations.
+Experienced in managing operational workflows,
+guiding teams, improving SLA performance,
+and driving collaborative efficiency across fast-paced environments.
 
 </p>
 
 </div>
 
-<div class="about-card">
+<div class="card">
+
+<h3>Technical Expertise</h3>
 
 <p>
 
-With expertise across eCommerce, SaaS, communication tools,
-web technologies, and enterprise support systems,
-I combine technical knowledge with leadership capabilities
-to create measurable impact for organizations and clients.
+Strong technical background across support systems,
+web technologies, eCommerce platforms,
+network troubleshooting, and enterprise collaboration tools.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Customer Success</h3>
+
+<p>
+
+Recognized consistently for delivering exceptional customer satisfaction,
+building trust, and solving high-pressure technical challenges effectively.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Innovation</h3>
+
+<p>
+
+Focused on process optimization, automation ideas,
+workflow improvements, and scalable operational solutions
+that improve productivity and efficiency.
 
 </p>
 
@@ -593,17 +663,17 @@ to create measurable impact for organizations and clients.
 
 <div class="stat">
 <h2>15+</h2>
-<p>Team Members Managed</p>
+<p>Team Members Led</p>
 </div>
 
 <div class="stat">
 <h2>Top</h2>
-<p>CSAT & NPS Rankings</p>
+<p>CSAT Rankings</p>
 </div>
 
 <div class="stat">
 <h2>Global</h2>
-<p>Client Experience</p>
+<p>Enterprise Clients</p>
 </div>
 
 </div>
@@ -614,101 +684,60 @@ to create measurable impact for organizations and clients.
 
 <section id="experience">
 
+<div class="section-top">
+
+<div class="section-number">
+02
+</div>
+
 <h2 class="section-title">
 Experience Highlights
 </h2>
 
+</div>
+
 <div class="timeline">
 
-<div class="timeline-item">
-<div class="timeline-card">
+<div class="exp-card">
 
-<h3>Client Success & Crisis Resolution</h3>
+<h3>Enterprise Client Crisis Resolution</h3>
 
 <p>
 
-Resolved critical website layout issues for live enterprise events,
-helping retain high-value clients and reinforcing trust
-through rapid technical problem-solving.
+Successfully resolved critical live-event website issues
+for enterprise clients under high-pressure situations,
+protecting client trust and operational continuity.
 
 </p>
 
 </div>
-</div>
 
-<div class="timeline-item">
-<div class="timeline-card">
+<div class="exp-card">
 
-<h3>Leadership & Team Development</h3>
+<h3>Operational Process Improvements</h3>
 
 <p>
 
-Managed operational workflows, improved SLA performance,
-guided team members, and developed productivity-enhancing tools
-to streamline business operations.
+Implemented workflow enhancements that significantly reduced support handling time,
+improved SLA performance,
+and increased overall operational efficiency.
 
 </p>
 
 </div>
-</div>
 
-<div class="timeline-item">
-<div class="timeline-card">
+<div class="exp-card">
 
-<h3>Process Optimization</h3>
+<h3>Leadership & Collaboration</h3>
 
 <p>
 
-Implemented workflow improvements that reduced support handling times
-dramatically while increasing efficiency and customer satisfaction.
+Led and mentored teams while introducing collaborative workflows,
+automation ideas,
+and performance optimization initiatives.
 
 </p>
 
-</div>
-</div>
-
-</div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-<h2 class="section-title">
-Technical Expertise
-</h2>
-
-<div class="skills-grid">
-
-<div class="skill-card">
-<h3>Support Systems</h3>
-<p>Zendesk, Bold Chat, Seibel, Jira, Slack, Teams</p>
-</div>
-
-<div class="skill-card">
-<h3>Web Technologies</h3>
-<p>HTML, CSS, Chrome DevTools, Shopify, WordPress</p>
-</div>
-
-<div class="skill-card">
-<h3>Creative Tools</h3>
-<p>Photoshop, Premiere Pro, Filmora, Graphic Design</p>
-</div>
-
-<div class="skill-card">
-<h3>Operations</h3>
-<p>Team Management, SLA Monitoring, Coordination</p>
-</div>
-
-<div class="skill-card">
-<h3>Networking</h3>
-<p>Router Configuration, Troubleshooting, Remote Access</p>
-</div>
-
-<div class="skill-card">
-<h3>Business Skills</h3>
-<p>Customer Experience, Communication, Leadership</p>
 </div>
 
 </div>
@@ -717,15 +746,23 @@ Technical Expertise
 
 <!-- CONTACT -->
 
-<section id="contact" class="contact">
+<section class="contact" id="contact">
+
+<div class="section-number">
+03
+</div>
 
 <h2>
-Let's Build Something Great
+Let's Create Impact
 </h2>
 
 <p>
-Available for leadership, customer success,
-technical support, and operational excellence opportunities.
+
+Available for leadership,
+customer success,
+technical operations,
+and enterprise support opportunities.
+
 </p>
 
 <div class="contact-links">
@@ -750,98 +787,86 @@ LinkedIn
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* HERO ANIMATION */
+/* HERO */
 
-gsap.to(".hero-sub",{
+gsap.to(".small-title",{
 opacity:1,
-y:-10,
+y:-20,
 duration:1
 });
 
-gsap.to(".hero-title",{
+gsap.to(".main-title",{
 opacity:1,
 y:-20,
-duration:1.2,
+duration:1.3,
 delay:0.3
 });
 
-gsap.to(".hero-description",{
-opacity:0.7,
-y:-10,
-duration:1.2,
+gsap.to(".hero-text",{
+opacity:1,
+y:-20,
+duration:1.3,
 delay:0.6
 });
 
 gsap.to(".hero-buttons",{
 opacity:1,
-y:-10,
-duration:1.2,
+y:-20,
+duration:1.3,
 delay:0.9
 });
 
-/* SECTION REVEALS */
+/* SECTION REVEAL */
 
-gsap.utils.toArray("section").forEach(section => {
+gsap.utils.toArray("section").forEach((section)=>{
 
 gsap.from(section,{
 opacity:0,
 y:100,
-duration:1.2,
+duration:1.4,
+ease:"power3.out",
 scrollTrigger:{
 trigger:section,
-start:"top 80%"
+start:"top 75%"
 }
 });
 
 });
 
-/* FLOATING LETTERS */
+/* FLOATING RINGS */
 
-gsap.to(".z1",{
-y:40,
-duration:6,
+gsap.to(".r1",{
+rotation:360,
+duration:50,
 repeat:-1,
-yoyo:true,
-ease:"sine.inOut"
+ease:"none"
 });
 
-gsap.to(".z2",{
-y:-40,
-duration:7,
+gsap.to(".r2",{
+rotation:-360,
+duration:70,
 repeat:-1,
-yoyo:true,
-ease:"sine.inOut"
+ease:"none"
 });
 
-/* MAGNETIC BUTTONS */
-
-const buttons = document.querySelectorAll(".btn");
-
-buttons.forEach(btn=>{
-
-btn.addEventListener("mousemove",(e)=>{
-
-const rect = btn.getBoundingClientRect();
-
-const x = e.clientX - rect.left - rect.width/2;
-const y = e.clientY - rect.top - rect.height/2;
-
-gsap.to(btn,{
-x:x*0.2,
-y:y*0.2,
-duration:0.3
+gsap.to(".r3",{
+rotation:360,
+duration:100,
+repeat:-1,
+ease:"none"
 });
 
-});
+/* PARALLAX */
 
-btn.addEventListener("mouseleave",()=>{
+window.addEventListener("mousemove",(e)=>{
 
-gsap.to(btn,{
-x:0,
-y:0,
-duration:0.3
-});
+const x = (window.innerWidth / 2 - e.pageX) / 40;
+const y = (window.innerHeight / 2 - e.pageY) / 40;
 
+gsap.to(".gradient",{
+x:x,
+y:y,
+duration:2
 });
 
 });
